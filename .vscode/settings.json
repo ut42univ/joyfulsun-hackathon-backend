@@ -1,4 +1,7 @@
 {
+  "files.exclude": {
+    "**/__pycache__": true
+  },
   "cSpell.words": ["dotenv", "sumiyoshi"],
   "cSpell.ignorePaths": [".env"]
 }
