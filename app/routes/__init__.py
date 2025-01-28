@@ -23,8 +23,8 @@ async def read_root():
     return {"Hello": "World"}
 
 
-@router.get("/read")
-async def read_data(q: int = 10) -> list[PurchaseData]:
-    query = f"SELECT * FROM store LIMIT {q};"
+@router.get("/read/{table_name}")
+async def read_data(table_name: str, q: int = 10) -> list[PurchaseData]:
+    query = f"SELECT * FROM {table_name} LIMIT {q};"
     rows = await db.fetch_all(query)
     return [PurchaseData(**row) for row in rows]
