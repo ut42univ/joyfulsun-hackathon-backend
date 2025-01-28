@@ -1,8 +1,7 @@
 from contextlib import asynccontextmanager
 
-from fastapi import APIRouter
-
 from db import database as db
+from fastapi import APIRouter
 from models import PurchaseData
 
 
@@ -20,7 +19,7 @@ router = APIRouter(lifespan=lifespan)
 
 @router.get("/")
 async def read_root():
-    return {"Hello": "World"}
+    return {"connection": "OK"}
 
 
 @router.get("/read/{table_name}")
