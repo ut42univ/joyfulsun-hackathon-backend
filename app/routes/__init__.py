@@ -17,7 +17,7 @@ async def lifespan(router: APIRouter):
 router = APIRouter(lifespan=lifespan)
 
 
-@router.get("/")
+@router.get("/connection")
 async def read_root():
     return {"connection": "OK"}
 
