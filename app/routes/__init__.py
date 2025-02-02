@@ -44,12 +44,12 @@ async def get_abc_analysis(table_name: str) -> list[ResultABC]:
 
     controller = ABC(rows_dict)
     result = controller.abc_analysis()
+    del controller
     return [ResultABC(**row) for row in result.to_dict(orient="records")]
 
 
 @router.get("/read/{table_name}/rfm")
 async def get_rfm_analysis(table_name: str) -> list[ResultRFM]:
-    # select card_id, date, sum(total_price)/count(total_price) from store_07.takara where card_id is not null group by card_id, date
     query = f"""
         SELECT card_id, date, sum(total_price)/count(total_price)
         FROM {table_name}
@@ -61,4 +61,5 @@ async def get_rfm_analysis(table_name: str) -> list[ResultRFM]:
 
     controller = RFM(rows_dict)
     result = controller.rfm_analysis()
+    del controller
     return [ResultRFM(**row) for row in result.to_dict(orient="records")]
