@@ -2,6 +2,6 @@
   "files.exclude": {
     "**/__pycache__": true
   },
-  "cSpell.words": ["dotenv", "sumiyoshi"],
+  "cSpell.words": ["cumsum", "dotenv", "qcut", "sumiyoshi"],
   "cSpell.ignorePaths": [".env"]
 }
